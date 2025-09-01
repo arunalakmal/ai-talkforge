@@ -5,7 +5,7 @@ const MessageList = () => {
     //     { sender: 'user', message: 'Hello, how are you?' },
     //     { sender: 'ai', message: 'I am fine, thank you!' }
     // ];
-
+    const API_URL = process.env.NEXT_PUBLIC_API_URL;
     const [userMessage, setUserMessage] = useState('');
     const [chatHistory, setChatHistory] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -14,7 +14,7 @@ const MessageList = () => {
         setLoading(true);
 
         try {
-            const response = await fetch('${API_URL}/chat', {
+            const response = await fetch(`${API_URL}/chat`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
